@@ -26,10 +26,6 @@ SECRET_KEY = 'p!pd+=feb%t=sqfv2$q8fa!4xa&c1eh-4a#j-#4!*wvop72gkf'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'mnejus.pythonanywhere.com']
-<<<<<<< HEAD
-
-=======
->>>>>>> 2091f327d1267fff5ed5a88074b312d7b1272597
 
 # Application definition
 
