@@ -1,24 +1,13 @@
-<html>
-<head>	
+{% extends 'blog/base.html' %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-<title>Blogos testos</title>
-</head>
-<body>
-	<div>
-		<h1><a hre="/">Django G Blog</a></h1>
-	</div>
-
-{% for post in posts %}
-	<div>
-		<p>opublikowany: {{ post.published_date }}</p>
-		<h2><a href="">{{ post.title }}</a></h2>
-		<p>{{ post.text|linebreaksbr }}<br> <!-- |linebreaksbr -> filtruje wpisy, zmienia znaczniki nowej linii na akapity -->
-		____________________________</p>
-	</div> 
-{% endfor %}
-</p>	
-</body>
-</html>
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				<p>published: {{ post.published_date }}</p>
+			</div>
+			<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></a></h2>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}
