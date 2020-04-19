@@ -31,7 +31,14 @@ def category_list(request):
 
 def category_detail(request, pk):
 	category = get_object_or_404(Category, pk=pk)
-	return render(request, 'blog/category_detail.html', {'category':category})
+	categories = Category.objects.all()
+
+	context = {
+		'category':category,
+		'categories':categories,
+	}
+
+	return render(request, 'blog/category_detail.html', context=context)
 
 @login_required
 def post_new(request):
