@@ -21,3 +21,8 @@ class Post(models.Model):
 		
 	def __str__(self):
 		return self.title
+
+	def display_category(self):
+		return ', '.join(category.name for category in self.category.all()[:3])
+
+	display_category.short_description = 'Category'
