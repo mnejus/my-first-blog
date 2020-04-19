@@ -7,7 +7,7 @@ class Post(models.Model):
 	text = models.TextField()
 	created_data = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	category = models.ForeignKey('Category', verbose_name='Kategoria', on_delete=models.SET_NULL, null=True)
+	category = models.ManyToManyField(Category, verbose_name='Kategoria', on_delete=models.SET_NULL, null=True)
 	
 	def publish(self):
 		self.published_date = timezone.now()
