@@ -17,7 +17,13 @@ def post_list(request):
 
 def post_detail(request, pk):
 	post =	get_object_or_404(Post, pk=pk)
-	return render(request, 'blog/post_detail.html', {'post':post})
+	categories = Category.objects.all()
+
+	context = {
+		'post':post,
+		'categories':categories,
+	}
+	return render(request, 'blog/post_detail.html', context=context)
 
 def category_list(request):
 	categories = Category.objects.all()
