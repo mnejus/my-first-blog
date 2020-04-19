@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <h2>Posty z kategorii: {{ category.name }}</h2>
+
+    <hr>
+
+    {% for post in category.post_set.all %}
+
+        <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
+
+    {% endfor %}
+
+{% endblock %}
